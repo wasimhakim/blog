@@ -1,0 +1,31 @@
+<div id="<%= dom_id page %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Name:</strong>
+    <%= page.name %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">About:</strong>
+    <%= page.about %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Website:</strong>
+    <%= page.website %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Phone:</strong>
+    <%= page.phone %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Whatsapp:</strong>
+    <%= page.whatsapp %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to 'Edit this page', edit_page_path(page), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>

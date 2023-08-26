@@ -1,0 +1,37 @@
+<div class="flex flex-col gap-4">
+  <div class="bg-blue-400 w-full h-96 overflow-hidden">
+    <%= image_tag @page.cover, class: 'object-cover object-center w-full h-full' if @page.cover.attached? %>
+  </div>
+  <div class="bg-white md:mx-10 mx-2 relative -top-20 p-8 rounded-lg flex flex-col gap-4 shadow-lg">
+    <div class="flex justify-between">  
+      <h1 class="md:text-4xl text-xl font-bold flex items-center gap-4">
+        <%= @page.name %> 
+        <%= link_to 'Edit', edit_page_path(@page), class: "text-base rounded-lg md:py-2 py-1 px-5 bg-green-500 font-medium" %>
+        <%= button_to 'Destroy', page_path(@page), method: :delete, class: "text-base rounded-lg py-2 px-5 bg-red-500 font-medium" if current_user.admin? %>
+      </h1>
+      <div class="flex gap-4 items-center">
+        <%= link_to 'Feed', feed_path, class: "text-base rounded-lg md:py-2 py-1 px-5 bg-yellow-500 font-medium" %>
+        <small class="text-sm text-red-600 font-normal">
+          <%= button_to('Logout', destroy_user_session_path, method: :delete) %>
+        </small>
+      </div>
+    </div>
+    <div class="flex md:flex-row flex-col gap-4">
+      <div class="md:w-1/4 flex flex-col gap-4 bg-gray-200 rounded-lg md:p-6 p-3 max-h-60 overflow-scroll">
+        <p><%= @page.about %></p>
+        <a class="text-blue-500 italic" href="https://<%= @page.website %>"><%= @page.website %></a>
+        <p><%= @page.phone %></p>
+        <p><%= @page.whatsapp %></p>
+      </div>
+      <div class="flex-1 bg-gray-200 rounded-lg md:p-6 p-3 flex flex-col gap-4">
+        <div class="flex justify-between items-center">
+          <h2 class="text-2xl font-semibold">Your Posts</h2>
+          <%= link_to 'New Post', new_page_post_path(@page), class: "rounded-lg py-3 px-5 bg-blue-500 text-white font-medium" %>
+        </div>
+        <% @page.posts.each do |post| %>
+          <%= render post %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

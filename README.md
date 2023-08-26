@@ -1,24 +1,12 @@
-# README
+# Blog
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A simple blog webapp. Create an account, create your page and start posting articles or posts.
 
-Things you may want to cover:
+## Development
 
-* Ruby version
+- Clone the repository
+- bundle install
+- rails db:create db:migrate
+- ./bin/dev
 
-* System dependencies
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...

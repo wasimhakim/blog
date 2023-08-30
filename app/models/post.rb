@@ -2,7 +2,12 @@ class Post < ApplicationRecord
   # 
   # Validations
   # 
-  validates :title, :description, presence: true
+  validates :title, presence: true
+
+  # 
+  # Action Text
+  # 
+  has_rich_text :content
   
   # 
   # Associations
